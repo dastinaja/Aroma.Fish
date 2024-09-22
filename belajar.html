@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Web dengan Logo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Pastikan footer di bagian bawah */
+        }
+        header {
+            background-color: rgb(0, 72, 131);
+            color: white;
+            padding: 0px 10px;
+            display: flex;
+            align-items: center;
+            font-family: 'Times New Roman';
+        }
+        .logo-container img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        nav {
+            margin-left: auto; /* Pindahkan navigasi ke kanan */
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 5px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        main {
+            padding: 15px;
+            flex: 1; /* Mengisi ruang yang tersedia */
+            text-align: center; /* Pusatkan teks dan gambar */
+        }
+        footer {
+            text-align: center;
+            padding: 0px;
+            background-color: rgb(0, 72, 131);
+            color: white;
+            font-size: 8px;
+        }
+        .about, .gallery {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e2e2e2;
+            border-radius: 5px;
+            display: none; /* Sembunyikan bagian ini awalnya */
+            opacity: 0; /* Mulai dengan transparan */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* Tambahkan transisi */
+            transform: translateY(20px); /* Posisi awal */
+        }
+        .about.show, .gallery.show {
+            display: block; /* Tampilkan ketika diperlukan */
+            opacity: 1; /* Tidak transparan */
+            transform: translateY(0); /* Kembali ke posisi normal */
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .gallery img {
+            height: 150px; /* Tinggi gambar */
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://png.pngtree.com/png-clipart/20221020/original/pngtree-betta-multy-colour-png-image_8706461.png" alt="Logo">
+        </div>
+        <h1>Aroma Fish</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showHome()">Beranda</a></li>
+                <li><a href="#" onclick="showAbout()">Tentang</a></li>
+                <li><a href="#" onclick="showGallery()">Display</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2 id="main-title">Ini adalah konten utama</h2>
+        <p id="main-content">Selamat datang di Aroma Fish! Kami menyediakan berbagai jenis ikan cupang berkualitas dan layanan terbaik untuk para penggemar ikan.</p>
+
+        <div class="gallery" id="gallery"> 
+            <img src="https://s3.bukalapak.com/img/87884965792/s-463-463/data.jpeg.webp" alt="Ikan 1">
+            <img src="https://api.minapoli.com/media/infomina/p/medium_788a51a4d71e853515898603f3c71e19.png" alt="Ikan 2">
+            <img src="https://images.tokopedia.net/img/cache/700/VqbcmM/2023/11/3/e275c8e3-322b-4932-b562-2d1afb73e598.jpg" alt="Ikan 3">
+            <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98p-lnf6xwh8uo3ga3" alt="Ikan 4">
+            <img src="https://images.tokopedia.net/img/cache/700/VqbcmM/2021/7/9/ae69c64c-aa07-4ea6-9c46-49e2b61dde32.jpg" alt="Ikan 5">
+            <img src="https://www.blibli.com/friends-backend/wp-content/uploads/2021/01/ikan-cupang-avatar.png" alt="Ikan 6">
+            <img src="https://img.ws.mms.shopee.co.id/id-11134207-23030-6v2ii6cxrlov91" alt="Ikan 7">
+            <img src="https://i.pinimg.com/564x/f7/d6/7d/f7d67deb3efa9f823d3c0ad14bcd7b29.jpg" alt="Ikan 8">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiICuqEvum4Z5KltWawJrjBQnSa95AFxWwMQ&s" alt="Ikan 9">
+            <img src="https://images.tokopedia.net/img/cache/700/VqbcmM/2021/5/19/d2e7b2d6-332e-4df5-aad0-3ef7c30844a8.jpg" alt="Ikan 10">
+        </div>
+
+        <div class="about" id="about"> 
+            <h1>Tentang Aroma Fish</h1>
+            <p>Aroma Fish adalah sebuah perusahaan yang menjual ikan cupang, dominan ikan cupang pada perusahaan Aroma Fish adalah jenis bluerim.</p>
+            <p>Kami berkomitmen untuk menyediakan ikan berkualitas dan informasi yang bermanfaat bagi para pecinta ikan cupang. Setiap ikan yang kami tawarkan telah melalui proses seleksi ketat untuk memastikan kesehatan dan keindahan.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; AROMA.FISH </p>
+    </footer>
+
+    <script>
+        function showHome() {
+            document.getElementById('main-title').innerText = "Beranda";
+            document.getElementById('main-content').innerHTML = `
+                <p>Selamat datang di Aroma Fish! Kami menyediakan berbagai jenis ikan cupang berkualitas dan layanan terbaik untuk para penggemar ikan. Aroma Fish adalah tempat yang tepat untuk menemukan ikan impian Anda. Kami berkomitmen untuk memberikan informasi dan produk terbaik untuk membantu Anda merawat ikan kesayangan.</p>
+                <h3>Jenis-Jenis Ikan Cupang:</h3>
+                <ul>
+                    <li><strong>Betta Splendens:</strong> Jenis paling umum dan dikenal luas, memiliki warna cerah dan sirip yang indah.</li>
+                    <li><strong>Betta Halfmoon:</strong> Memiliki sirip yang berbentuk setengah bulan dan mekar dengan indah saat berenang.</li>
+                    <li><strong>Betta Crowntail:</strong> Dikenali dengan sirip yang berujung runcing, memberikan tampilan yang unik.</li>
+                    <li><strong>Betta Double Tail:</strong> Memiliki dua sirip ekor yang terpisah, memberikan penampilan yang menarik.</li>
+                    <li><strong>Betta Plakat:</strong> Memiliki tubuh yang lebih pendek dan sirip yang lebih kecil, biasanya lebih aktif dan agresif.</li>
+                </ul>
+            `;
+            document.getElementById('gallery').classList.remove("show"); // Sembunyikan galeri
+            document.getElementById('about').classList.remove("show"); // Sembunyikan bagian tentang
+        }
+
+        function showAbout() {
+            document.getElementById('main-title').innerText = "Tentang Kami";
+            document.getElementById('main-content').innerHTML = `
+                <p>Aroma Fish adalah sebuah perusahaan yang menjual ikan cupang, dominan ikan cupang pada perusahaan Aroma Fish adalah jenis bluerim.</p>
+                <p>Kami berkomitmen untuk menyediakan ikan berkualitas dan informasi yang bermanfaat bagi para pecinta ikan cupang. Setiap ikan yang kami tawarkan telah melalui proses seleksi ketat untuk memastikan kesehatan dan keindahan.</p>
+            `;
+            document.getElementById('gallery').classList.remove("show"); // Sembunyikan galeri
+            document.getElementById('about').classList.add("show"); // Tampilkan bagian tentang
+        }
+
+        function showGallery() {
+            document.getElementById('main-title').innerText = "Display Ikan";
+            document.getElementById('main-content').innerText = ""; // Kosongkan konten utama
+            document.getElementById('gallery').classList.add("show"); // Tampilkan galeri
+            document.getElementById('about').classList.remove("show"); // Sembunyikan bagian tentang
+        }
+    </script>
+</body>
+</html>
